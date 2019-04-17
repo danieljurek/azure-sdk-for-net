@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.Build.Traversal">
+  <ItemGroup>
+    <SkippedTests Include="$(RepoSrcPath)\ServiceBus\data-plane\**\*.Tests.*proj" Condition="'$(SkipTests)' == 'true'" />
+    <ServiceBusProject Include="$(RepoSrcPath)\ServiceBus\data-plane\**\*.*proj" Exclude="@(SkippedTests)" />
+
+    <ProjectReference Include="@(ServiceBusProject)" />
+  </ItemGroup>
+</Project>
