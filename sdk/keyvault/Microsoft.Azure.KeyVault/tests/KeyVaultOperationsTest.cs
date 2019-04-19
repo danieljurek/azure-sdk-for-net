@@ -108,6 +108,12 @@ namespace Microsoft.Azure.KeyVault.Tests
                 kvClient.GetKeysAsync(_vaultAddress).GetAwaiter().GetResult();
             }
         }
+        
+        [Fact]
+        public void DanielsTestShouldRunOnce()
+        {
+            "hello world".ToUpper();
+        }
 
         #region Key Operations
         [Fact]

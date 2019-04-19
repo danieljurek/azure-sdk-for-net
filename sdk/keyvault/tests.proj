@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.Build.Traversal">
+  <ItemGroup>
+    <ExcludeProjectByOs Include="$(RepoRoot)\sdk\keyvault\**\Microsoft.Azure.KeyVault.Tests.csproj" Condition="'$(OS)' != 'Windows_NT'" />
+    <KeyVaultProjects Include="$(RepoRoot)\sdk\keyvault\**\*.Tests.*proj" Exclude="@(ExcludeProjectByOs)" />
+
+    <ProjectReference Include="@(KeyVaultProjects)" />
+  </ItemGroup>
+</Project>
