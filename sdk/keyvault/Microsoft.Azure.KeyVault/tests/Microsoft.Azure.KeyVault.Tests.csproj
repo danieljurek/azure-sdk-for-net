@@ -18,7 +18,7 @@
     <ProjectReference Include="TestFramework\Microsoft.Azure.KeyVault.TestFramework.csproj" />
 
     <!-- Issue https://github.com/Azure/azure-sdk-for-net/issues/5089 some KeyVault tests don't work on linux -->
-    <Complie Remove="$(MSBuildThisFileDirectory)\**\*.cs" Condition="'$(OS)' == 'Windows_NT'" />
+    <Complie Remove="$(MSBuildThisFileDirectory)\**\*.cs" Condition="'$(OS)' != 'Windows_NT'" />
   </ItemGroup>
 
   <ItemGroup>
