@@ -302,6 +302,7 @@ namespace Microsoft.Azure.KeyVault.Tests
         }
 
         [Fact]
+        // Skip if not Windows
         public void EcKeyCreateSignVerifyP256()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
@@ -315,6 +316,7 @@ namespace Microsoft.Azure.KeyVault.Tests
         }
 
         [Fact]
+        // Skip if not Windows
         public void EcKeyCreateSignVerifyP384()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
@@ -328,6 +330,7 @@ namespace Microsoft.Azure.KeyVault.Tests
         }
 
         [Fact]
+        // Skip if not Windows
         public void EcKeyCreateSignVerifyP521()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
@@ -341,6 +344,7 @@ namespace Microsoft.Azure.KeyVault.Tests
         }
 
         [Fact]
+        // Skip if not Windows
         public void EcKeyCreateSignVerifySECP256K1()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
