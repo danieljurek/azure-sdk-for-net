@@ -15,6 +15,7 @@ using System.Threading;
 using KeyVault.TestFramework;
 using Microsoft.Azure.KeyVault.Models;
 using Microsoft.Azure.KeyVault.WebKey;
+using Microsoft.Azure.Test.Extensions.Xunit;
 using Microsoft.Azure.Test.HttpRecorder;
 using Microsoft.Rest.ClientRuntime.Azure.TestFramework;
 using Microsoft.Rest.Serialization;
@@ -301,8 +302,9 @@ namespace Microsoft.Azure.KeyVault.Tests
             }
         }
 
-        [Fact]
-        // Skip if not Windows
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.Linux)]
+        [OSSkipCondition(OperatingSystems.MacOSX)]
         public void EcKeyCreateSignVerifyP256()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
@@ -315,8 +317,9 @@ namespace Microsoft.Azure.KeyVault.Tests
             }
         }
 
-        [Fact]
-        // Skip if not Windows
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.Linux)]
+        [OSSkipCondition(OperatingSystems.MacOSX)]
         public void EcKeyCreateSignVerifyP384()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
@@ -329,8 +332,9 @@ namespace Microsoft.Azure.KeyVault.Tests
             }
         }
 
-        [Fact]
-        // Skip if not Windows
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.Linux)]
+        [OSSkipCondition(OperatingSystems.MacOSX)]
         public void EcKeyCreateSignVerifyP521()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
@@ -343,8 +347,9 @@ namespace Microsoft.Azure.KeyVault.Tests
             }
         }
 
-        [Fact]
-        // Skip if not Windows
+        [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.Linux)]
+        [OSSkipCondition(OperatingSystems.MacOSX)]
         public void EcKeyCreateSignVerifySECP256K1()
         {
             using (MockContext context = MockContext.Start(GetType().FullName))
