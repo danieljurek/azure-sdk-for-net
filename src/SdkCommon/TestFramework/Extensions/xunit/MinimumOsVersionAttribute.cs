@@ -5,7 +5,7 @@ using System;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace Microsoft.AspNetCore.Testing.xunit
+namespace Microsoft.Azure.Test.Extensions.Xunit
 {
     /// <summary>
     /// Skips a test if the OS is the given type (Windows) and the OS version is less than specified.

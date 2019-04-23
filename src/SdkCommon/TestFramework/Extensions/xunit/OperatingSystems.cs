@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Microsoft.AspNetCore.Testing.xunit
+namespace Microsoft.Azure.Test.Extensions.Xunit
 {
     [Flags]
     public enum OperatingSystems

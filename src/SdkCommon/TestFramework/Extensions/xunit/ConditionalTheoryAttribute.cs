@@ -5,10 +5,10 @@ using System;
 using Xunit;
 using Xunit.Sdk;
 
-namespace Microsoft.AspNetCore.Testing.xunit
+namespace Microsoft.Azure.Test.Extensions.Xunit
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-    [XunitTestCaseDiscoverer("Microsoft.AspNetCore.Testing.xunit." + nameof(ConditionalTheoryDiscoverer), "Microsoft.AspNetCore.Testing")]
+    [XunitTestCaseDiscoverer("Microsoft.Azure.Test.Extensions.Xunit." + nameof(ConditionalTheoryDiscoverer), "Microsoft.Azure.Test.Extensions")]
     public class ConditionalTheoryAttribute : TheoryAttribute
     {
     }
