@@ -25,8 +25,7 @@ namespace Microsoft.Azure.Test.Extensions.Xunit
         {
         }
 
-        // to enable unit testing
-        internal OSSkipConditionAttribute(
+        private OSSkipConditionAttribute(
             OperatingSystems operatingSystem, OperatingSystems osPlatform, string osVersion, params string[] versions)
         {
             _excludedOperatingSystem = operatingSystem;

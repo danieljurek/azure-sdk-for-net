@@ -27,8 +27,7 @@ namespace Microsoft.Azure.Test.Extensions.Xunit
         {
         }
 
-        // To enable unit testing
-        internal EnvironmentVariableSkipConditionAttribute(
+        private  EnvironmentVariableSkipConditionAttribute(
             IEnvironmentVariable environmentVariable,
             string variableName,
             params string[] values)
