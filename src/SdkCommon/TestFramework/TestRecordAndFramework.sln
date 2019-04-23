@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Rest.ClientRuntim
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Rest.ClientRuntime.Azure.Authentication", "..\Auth\Az.Auth\Az.Authentication\Microsoft.Rest.ClientRuntime.Azure.Authentication.csproj", "{84E4B6AC-0C58-4A80-B251-3C9BCF18FA9D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Testing", "Extensions\Microsoft.AspNetCore.Testing.csproj", "{BC01826B-131F-4271-9537-263D5C4EEB4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Azure.Test.Extensions", "Extensions\Microsoft.Azure.Test.Extensions.csproj", "{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,22 +147,22 @@ Global
 		{84E4B6AC-0C58-4A80-B251-3C9BCF18FA9D}.Portable-Release|Any CPU.Build.0 = Release|Any CPU
 		{84E4B6AC-0C58-4A80-B251-3C9BCF18FA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84E4B6AC-0C58-4A80-B251-3C9BCF18FA9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net40-Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net40-Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net40-Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net40-Release|Any CPU.Build.0 = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net45-Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net45-Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net45-Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Net45-Release|Any CPU.Build.0 = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Portable-Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Portable-Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Portable-Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Portable-Release|Any CPU.Build.0 = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC01826B-131F-4271-9537-263D5C4EEB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net40-Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net40-Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net40-Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net40-Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net45-Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net45-Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net45-Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Net45-Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Portable-Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Portable-Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Portable-Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Portable-Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2D3F37-75D3-4673-89F2-42204AD0BDD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
