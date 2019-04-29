@@ -15,9 +15,6 @@ variables:
 jobs:
   - job: 'Test'
 
-    variables:
-      TestTimeoutInMinutes: $[variables['TimeoutInMinutes']]
-
     strategy:
       maxParallel: $[ variables['MaxParallelTestJobs'] ]
       matrix:
@@ -53,8 +50,8 @@ jobs:
           version: '$(DotNetCoreVersion)'
 
       - script: 'dotnet test $(ProjectFile) --logger trx'
-        displayName: 'Build & Test (all tests) (timeout: $(TestTimeoutInMinutes))'
-        timeoutInMinutes: $(TestTimeoutInMinutes)
+        displayName: 'Build & Test (all tests)'
+        timeoutInMinutes: 90
         env:
           DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
