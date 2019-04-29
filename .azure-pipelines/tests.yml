@@ -51,7 +51,7 @@ jobs:
 
       - script: 'dotnet test $(ProjectFile) --logger trx'
         displayName: 'Build & Test (all tests)'
-        timeoutInMinutes: $(TimeoutInMinutes)
+        timeoutInMinutes: $[variables['TimeoutInMinutes']]
         env:
           DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
