@@ -26,7 +26,7 @@ param (
     [string] $TestApplicationSecret,
 
     [Parameter()]
-    [ValidatePattern('^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$')]
+    # [ValidatePattern('^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$')]
     [string] $TestApplicationOid,
 
     [Parameter(ParameterSetName = 'Provisioner', Mandatory = $true)]
@@ -34,7 +34,6 @@ param (
     [string] $TenantId,
 
     [Parameter(ParameterSetName = 'Provisioner')]
-    [ValidatePattern('^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$')]
     [string] $SubscriptionId,
 
     [Parameter(ParameterSetName = 'Provisioner', Mandatory = $true)]
@@ -52,7 +51,6 @@ param (
     [string] $Location = '',
 
     [Parameter()]
-    [ValidateSet('AzureCloud', 'AzureUSGovernment', 'AzureChinaCloud')]
     [string] $Environment = 'AzureCloud',
 
     [Parameter()]
@@ -148,7 +146,7 @@ if ($ProvisionerApplicationId) {
 
     # Use the given subscription ID if provided.
     $subscriptionArgs = if ($SubscriptionId) {
-        @{SubscriptionId = $SubscriptionId}
+        @{Subscription = $SubscriptionId}
     }
 
     $provisionerAccount = Retry {
