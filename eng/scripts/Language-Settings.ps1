@@ -229,6 +229,75 @@ function Update-dotnet-CIConfig($pkgs, $ciRepo, $locationInDocRepo, $monikerId=$
   Set-Content -Path $csvLoc -Value $allCSVRows
 }
 
+function Update-dotnet-MonikerConfig($SupersedingPackages, $CiConfigLocation, $previewMonikerIndex=$null, $latestMonikerIndex=$null) {
+  if (-not (Test-Path $CiConfigLocation)) {
+    Write-Error "Unable to locate package csv at location $csvLoc, exiting."
+    exit(1)
+  }
+
+  # Using Get-Content because Import-Csv doesn't support unspecified columns
+  # Since there can be many version columns it's best to split
+  $allCsvRows = Get-Content $CiConfigLocation
+  $supersedingPackagesCache = @{}
+
+  foreach($package in $SupersedingPackages) { 
+    $supersedingPackagesCache[$package.PackageId] = $package
+  }
+
+  # Filter out superseding packages
+  $outputCsvRows = $allCsvRows `
+    | Where-Object {
+      # Example rows (note second column contains additional properties): 
+      # cogservicespersonalizer,[isPrerelease=true]Microsoft.Azure.CognitiveServices.Personalizer,0.8.0-preview
+      # azurestoragefilesdatalake,[tfm=netstandard2.0;isPrerelease=true]Azure.Storage.Files.DataLake
+      $row = $_.Split(',')
+      $packageMoniker = $row[0]
+      $installModifiers = if ($row[1] -match '\[(.*)\]') { $Matches[1] } else { "" }
+      $packageId = if ($row[1] -match '(\[.*\])?(.*)') { $Matches[2] } else { Write-Error "Could not find package id in row $($row[1])" }
+
+      # Keep packages which do not match any of the packages in $SupersedingPackages
+      if (-not $supersedingPackagesCache.ContainsKey($packageId)) { 
+        return $true
+      }
+
+      $supersedingVersion = [AzureEngSemanticVersion]::ParseVersionString(
+        $supersedingPackagesCache[$packageId].PackageVersion
+      )
+
+      $previewVersion = GetExistingPackageVersions($packageId) `
+        | ForEach-Object { [AzureEngSemanticVersion]::ParseVersionString($_) } `
+        | Where-Object { $_.IsPrerelease } `
+        | Sort-Object -Descending `
+        | Select-Object -First 1
+
+        Write-Host "$($packageId)@$supersedingVersion > $previewVersion ??"
+        if ($supersedingVersion -gt $previewVersion) { 
+          Write-Host "SUPERSEDED"
+          return $false 
+        }
+  
+        Write-Host "NOT SUPERSEDED"
+        return $true
+    }
+
+  Set-Content -Path $CiConfigLocation -Value $outputCsvRows
+}
+
+function Test-dotnet-PackageSupersedesAllPublishedPackages($packageInfo, $latestConfig=$null) {
+  $packageVersion = [AzureEngSemanticVersion]::ParseVersionString($packageInfo.PackageVersion)
+  $latestPublishedVersion = GetExistingPackageVersions($packageInfo.PackageId) `
+  | ForEach-Object { [AzureEngSemanticVersion]::ParseVersionString($_) } `
+  | Sort-Object -Descending `
+  | Select-Object -First 1
+  
+  if ($packageVersion -gt $latestPublishedVersion) { 
+    return $true 
+  } else { 
+    Write-Host "$($packageInfo.PackageId)@$($packageInfo.PackageVersion) is superseded by version $latestPublishedVersion"
+    return $false
+  }
+}
+
 # function is used to auto generate API View
 function Find-dotnet-Artifacts-For-Apireview($artifactDir, $packageName)
 {
