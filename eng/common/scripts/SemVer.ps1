@@ -268,6 +268,23 @@ class AzureEngSemanticVersion : IComparable {
       }
     }
 
+    Write-Host $versions
+    $sortIComparable = $versions `
+      | ForEach-Object { [AzureEngSemanticVersion]::ParseVersionString($_) } `
+      | Sort-Object -Descending
+
+    for ($i = 0; $i -lt $expectedSort.Count; $i++)
+    {
+      if ($sortIComparable[$i].ToString() -ne $expectedSort[$i]) { 
+        Write-Host "Error: Incorrect version sort:"
+        Write-Host "Expected: "
+        $expectedSort | ForEach-Object { $_.ToString() } | Format-List | Out-String | Write-Host
+        Write-Host "Actual:"
+        $sortIComparable | ForEach-Object { $_.ToString() } | Format-List | Out-String | Write-Host
+        break
+      }
+    }
+
     $alphaVerString = "1.2.3-alpha.20200828.9"
     $alphaVer = [AzureEngSemanticVersion]::new($alphaVerString)
     if (!$alphaVer.IsPrerelease) {
